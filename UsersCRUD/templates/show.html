@@ -20,7 +20,7 @@
 
                 <p>Created On: {{ created_at.strftime("%B %d, %Y") }}</p>
 
-                <p>Lasted Updated On: {{ updated_at.strftime("%B %d, %Y at %H:%M") }}
+                <p>Lasted Updated On: {{ updated_at.strftime("%B %d, %Y at %I:%M %p") }}
         </div>
         <div>
             <a href="/users/{{ id_number }}/edit">Edit</a> | <a href="users/{{ id_number }}/delete">Delete</a>
