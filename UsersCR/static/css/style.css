@@ -1,0 +1,22 @@
+#new-head {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#new-head a {
+	padding-top:  10px;
+}
+
+#container {
+	width:  80%;
+	margin:  100px auto 0 auto;
+}
+
+h1 {
+	font-size:  3.5em;
+}
+
+a {
+	font-size: 1.6em;
+}
