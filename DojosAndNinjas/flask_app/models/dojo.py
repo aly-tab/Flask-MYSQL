@@ -27,7 +27,7 @@ class Dojo:
 
 	@classmethod
 	def get_dojos_with_ninjas(cls, data):
-		query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = $(id)s;"
+		query = "SELECT * FROM dojos LEFT JOIN ninjas ON ninjas.dojo_id = dojos.id WHERE dojos.id = %(id)s;"
 		results = connectToMySQL('dojos_and_ninjas').query_db( query , data )
 
 		dojo = cls(results[0])
@@ -36,6 +36,7 @@ class Dojo:
                 "id" : row_from_db["ninjas.id"],
                 "first_name" : row_from_db["first_name"],
                 "last_name" : row_from_db["last_name"],
+				"age" : row_from_db["age"],
                 "created_at" : row_from_db["ninjas.created_at"],
                 "updated_at" : row_from_db["ninjas.updated_at"],
                 "dojo_id" : row_from_db["dojo_id"],				

@@ -25,27 +25,14 @@ def ninjas():
 
 @app.route('/dojos/<int:idValue>')
 def dojos(idValue):
-    dojos = Dojo.get_all()
-    print(dojos)
-
-    for one_dojo in dojos:
-        if one_dojo.id == idValue:
-            name = one_dojo.name  
-
     data = {
         "id" : idValue
     }
 
-    ninjas = Ninja.get_all(data)
-    print(ninjas)   
-
-    """
-    ninjas = Dojo.get_dojos_with_ninjas(data)
+    dojo = Dojo.get_dojos_with_ninjas(data)
     print(data)
-    """
 
-
-    return render_template('dojos.html', id_number=idValue, dname=name, ninjas=ninjas)
+    return render_template('dojos.html', id_number=idValue, dojo=dojo)
 
 @app.route('/ninjas/createninja', methods=['POST'])
 def createninja():

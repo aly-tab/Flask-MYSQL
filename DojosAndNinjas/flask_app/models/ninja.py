@@ -16,14 +16,5 @@ class Ninja:
 		query = "INSERT INTO ninjas ( first_name, last_name, age, created_at, updated_at , dojo_id ) VALUES ( %(fname)s , %(lname)s , %(age)s , NOW() , NOW() , %(dojo_id)s );"
 		return connectToMySQL('dojos_and_ninjas').query_db( query, data )
 
-	@classmethod
-	def get_all(cls, data ):
-		query = "SELECT * FROM ninjas WHERE dojo_id = %(id)s;"
-		results = connectToMySQL('dojos_and_ninjas').query_db( query, data )
-
-		ninjas = []
-		for ninja in results:
-			ninjas.append( cls(ninja) )
-		return ninjas
 
 
