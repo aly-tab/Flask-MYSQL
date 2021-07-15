@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.6em;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 50px;
+}
+
+#home-container {
+    display: flex;
+}
+
+.dojos {
+    border: 5px solid black;
+    padding: 25px;
+    line-height: 2em;
+    margin-bottom: 25px;
+}
+
+.row-1{
+    width: 40%;
+    height: 50%;
+    margin: 100px 25px 0 auto;
+}
+
+.new-name {
+    width: 60%;
+    height: 30px;
+}
+
+.row-2 {
+    width: 40%;
+    height: 50%;
+    margin: 100px auto 0 25px;
+}
+
+.create-dojo, .create-ninja {
+    margin-top: 30px;
+    padding: 15px 25px;
+    font-size: .9em;
+    background-color: white;
+    border: 5px solid black;
+
+}
+
+form > div {
+    margin-bottom: 25px;
+}
+
+.ninjainfo {
+    width: 25%;
+    height: 30px;
+}
+
+#container {
+    width: 80%;
+    margin: 100px auto 0 auto;
+}
+
+.selectid {
+    width: 25%;
+    height: 30px; 
+    font-size: .7em;
+}
+
+.table {
+    width: 50%;
+}

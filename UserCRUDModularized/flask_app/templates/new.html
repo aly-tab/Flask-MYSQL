@@ -10,21 +10,21 @@
 </head>
 <body>
     <div id="container">
-        <h1>User {{ id_number }}</h1>
-
-        <div class="inner-container">
-
-                <p>Full Name: {{ first_name }} {{ last_name }}</p>
-
-                <p>Email: {{ email }}</p>
-
-                <p>Created On: {{ created_at.strftime("%B %d, %Y") }}</p>
-
-                <p>Lasted Updated On: {{ updated_at.strftime("%B %d, %Y at %I:%M %p") }}
+        <div id="new-head">
+            <h1>Add a New User</h1>
+            <a href='/users'>Home</a>
         </div>
-        <div>
-            <a href="/users/{{ id_number }}/edit">Edit</a> | <a href="/users/{{ id_number }}/delete">Delete</a>
-        </div>
+        <form action='/users/adduser' method='post'>
+            <p for="fname">First Name</p>
+            <input type="text" name="fname">
+            <p for="lname">Last Name</p>
+            <input type="text" name="lname">
+            <p for="email" >Email</p>
+            <input type="text" name="email">
+            <div>
+            <input type="submit" value="Create" name="submit">
+            </div>
+        </form>
     </div>
 </body>
 </html>
