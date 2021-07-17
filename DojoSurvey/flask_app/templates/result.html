@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Form</title>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <h1>Submitted Info</h1>
+
+            <table>
+                {% for survey in surveys %}
+                    {% if survey.id == id %}
+                        <tr>
+                            <td>Name</td>
+                            <td>{{ survey.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>{{ survey.location }}</td>
+                        </tr>
+                        <tr>
+                            <td>Favorite Language</td>
+                            <td>{{ survey.favorite_language }}</td>
+                        </tr>
+                        <tr>
+                            <td>Comment</td>
+                            <td><div class="formattd">{{ survey.comment }}</div></td>
+                        </tr>
+                    {% endif %}
+                {%endfor %}
+            </table>
+        </div>
+        <div>
+            <form action='/'>
+                <input type="submit" value="Go Back" name="submit_button" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

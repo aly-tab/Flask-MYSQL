@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Form</title>
+</head>
+<body>
+    <div id="container">
+        <form action="/process" method='post'>
+            <table>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input type="text" name="name" class="name"></td>
+                </tr>
+                <tr>
+                    <td><label>Dojo Location:</label></td>
+                    <td><select name="location">
+                        <option>Dallas</option>
+                        <option>Washington D.C.</option>
+                        <option>San Jose</option>
+                        <option>Chicago</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label>Dojo Location:</label></td>
+                    <td><select name="language">
+                        <option>Python</option>
+                        <option>Java</option>
+                        <option>JavaScript</option>
+                        <option>Ruby</option>
+                        <option>C#</option>
+                    </select></td>
+                </tr>
+                </table>
+                <p>Comment (optional)</p>
+                <textarea id="comment" name="comment"></textarea>
+
+                <div>
+                    <input type="submit" value="Button" name="submit_button" class="btn">
+                </div>
+
+                {% with messages = get_flashed_messages() %}     
+                    {% if messages %}                            
+                        {% for message in messages %}           
+                            <p>{{message}}</p>                  
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+        </form>
+    </div>
+</body>
+</html>
