@@ -1,4 +1,5 @@
-from flask import Flask
+from flask_app.controllers import emails
+from flask_app import app
 
-app = Flask(__name__)
-app.secret_key = "56FDET4$dFP09kJ@#A"
+if __name__=="__main__":
+    app.run(debug=True)

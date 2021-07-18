@@ -1,0 +1,12 @@
+#container {
+    width: 60%;
+    margin: 100px auto 0 auto;
+}
+
+.email-input {
+    width: 50%;
+}
+
+.h {
+    text-decoration: underline;
+}
