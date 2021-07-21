@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Recipes</title>
+</head>
+<body>
+    <div id="head">
+        <h1>Add New Recipe</h1>
+        <h1><a href="/dashboard">Dashboard</a> <a href="/logout">Log Out</a></h1>
+    </div>
+    {% with messages = get_flashed_messages() %}     
+    {% if messages %}                          
+        {% for message in messages %}         
+            <p>{{message}}</p>               
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="/add_recipe" method="post">
+        <div id="add-field">
+            <div id="row-1">
+                <p for="name">Name:</p>
+                <input type="text" name="name">
+                <p for="description">Description:</p>
+                <textarea name="description"></textarea>
+                <p for="instructions">Instructions:</p>
+                <textarea name="instructions"></textarea>
+            </div>
+            <div id="row-2">
+                <p for="start">Date Made On:</p>
+                <input type="date" id="date" name="date">
+                <p for="under_30">Under 30 Minutes?</p>
+                <label for="Yes">Yes</label>
+                <input type="radio" id="Yes" name="selection" value="Yes" checked>
+                <label for="No">No</label>
+                <input type="radio" id="No" name="selection" value="No">
+            </div>
+            <div>
+                <input type="submit" value="Submit" name="submit" class="submit">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
