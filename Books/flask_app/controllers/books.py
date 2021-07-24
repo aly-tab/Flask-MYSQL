@@ -26,10 +26,8 @@ def author_favorites(id):
     print(author)
 
     if author == 0:
-        authors = Author.get_all()
-        for author in authors:
-            if author.id == id:
-                author = author
+        author = Author.get_author_by_id(data)
+        print(author)
 
     books = Book.get_all()
     print(books)
@@ -45,10 +43,7 @@ def book_favorites(id):
     print(book)
 
     if book == 0:
-        books = Book.get_all()
-        for book in books:
-            if book.id == id:
-                book = book
+        book = Book.get_book_by_id(data)
 
     authors = Author.get_all() 
     print(authors)

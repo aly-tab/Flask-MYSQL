@@ -25,6 +25,15 @@ class Author:
 		query = "INSERT INTO authors ( name, created_at, updated_at ) VALUES ( %(name)s , NOW() , NOW() );"
 		return connectToMySQL('books_schema').query_db( query, data )
 
+	@classmethod
+	def get_author_by_id(cls, data):
+		query = "SELECT * FROM authors WHERE id = %(id)s;"
+		result = connectToMySQL('books_schema').query_db( query, data )
+
+		if len(result) < 1:
+			return False
+		return cls(result[0]) 
+
 #=============================================================================================================#
 
 	@classmethod
@@ -34,7 +43,6 @@ class Author:
 
 		if len(results) == 0:
 			return 0	
-			
 		else:
 			author = cls(results[0])
 			for row_from_db in results:

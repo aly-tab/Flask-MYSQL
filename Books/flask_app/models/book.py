@@ -26,6 +26,15 @@ class Book:
 		query = "INSERT INTO books ( title, num_of_pages, created_at, updated_at ) VALUES ( %(title)s, %(pages)s , NOW() , NOW() );"
 		return connectToMySQL('books_schema').query_db( query, data )
 
+	@classmethod
+	def get_book_by_id(cls, data):
+		query = "SELECT * FROM books WHERE id = %(id)s;"
+		result = connectToMySQL('books_schema').query_db( query, data )
+
+		if len(result) < 1:
+			return False
+		return cls(result[0]) 
+
 
 #=============================================================================================================#
 
