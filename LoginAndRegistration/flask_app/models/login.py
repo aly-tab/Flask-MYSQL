@@ -36,10 +36,16 @@ class Login:
         if not EMAIL_REGEX.match(data['email']): 
             flash("Invalid email address!")
             is_valid = False
-        elif data['password'] != data['confirm-password']:
+        if data['password'] != data['confirm-password']:
             flash("Passwords do not match!")
             is_valid = False
-        else: 
+        if len(data['fname']) < 3:
+            flash("First name does not meet length requirement!")
+            is_valid = False
+        if len(data['lname']) < 3:
+            flash("Last name does not meet length requirement!")
+            is_valid = False
+        if is_valid == True:
             flash("You successfully registered!")
                 
         return is_valid	

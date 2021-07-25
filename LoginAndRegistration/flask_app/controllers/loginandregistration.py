@@ -13,6 +13,8 @@ def register():
     print(request.form)
 
     data = {
+        "fname" : request.form["fname"],
+        "lname" : request.form["lname"],
         "email" : request.form["email"],
         "password" : request.form["password"],
         "confirm-password" : request.form["confirm-password"],        
