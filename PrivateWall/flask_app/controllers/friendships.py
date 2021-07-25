@@ -2,8 +2,7 @@ from flask_app import app
 from flask import render_template, request, redirect, session
 from flask_app.controllers import users
 from flask_app.models.user import User
-from flask_app.models.friendship import Friendship
-from flask_app.models.message import Message  
+from flask_app.models.friendship import Friendship 
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -20,7 +19,7 @@ def dashboard():
     users = User.get_all_but_user(data)
     print(users)
 
-    messages = Message.get_user_messages(data)
+    messages = Friendship.get_all(data)
     print(messages)
 
     num = len(messages)
