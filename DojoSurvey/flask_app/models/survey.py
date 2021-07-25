@@ -32,8 +32,14 @@ class Survey:
 		if len(survey['name']) < 3:
 			flash("Name must be at least 3 characters.")	
 			is_valid = False 
+		if survey['location'] == '':
+			flash("Please select a location.")	
+			is_valid = False 
+		if survey['language'] == '':
+			flash("Please select a language.")	
+			is_valid = False 			
 		if len(survey['comment']) < 7:
-			flash("Name must be at least 7 characters.")	
+			flash("Comment must be at least 7 characters.")	
 			is_valid = False 
 		return is_valid
 
